@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="VLSI Design and Verification Engineer banner">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#070b18"/>
+      <stop offset="0.55" stop-color="#0b1f3d"/>
+      <stop offset="1" stop-color="#06303a"/>
+    </linearGradient>
+    <linearGradient id="chip" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16294f"/>
+      <stop offset="1" stop-color="#0c1530"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#7df3ff"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" fill="none" stroke="#1f3a63" stroke-width="0.6"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <style>
+    .mono { font-family: 'Fira Code', Consolas, 'Courier New', monospace; }
+    .flow { stroke-dasharray: 14 10; animation: flow 2.2s linear infinite; }
+    .flow2 { stroke-dasharray: 14 10; animation: flow 3.4s linear infinite reverse; }
+    .wave { stroke-dasharray: 600; animation: draw 4s ease-in-out infinite alternate; }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes flow { to { stroke-dashoffset: -48; } }
+    @keyframes draw { from { stroke-dashoffset: 600; } to { stroke-dashoffset: 0; } }
+    @keyframes pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  </style>
+
+  <rect width="1200" height="320" fill="url(#bg)"/>
+  <rect width="1200" height="320" fill="url(#grid)" opacity="0.35"/>
+
+  <!-- faint Verilog code -->
+  <g class="mono" font-size="13" fill="#4f7fb8" opacity="0.55">
+    <text x="50" y="42">module vlsi_engineer (input clk, input rst_n, output reg ready);</text>
+    <text x="50" y="62">  always @(posedge clk or negedge rst_n)</text>
+    <text x="50" y="82">    if (!rst_n) ready &lt;= 1'b0; else ready &lt;= 1'b1;</text>
+  </g>
+
+  <!-- circuit traces (left of chip) -->
+  <g fill="none" stroke="#00c2ff" stroke-width="2" opacity="0.75">
+    <path class="flow" d="M890 110 H830 V70 H770 V30 H700"/>
+    <path class="flow2" d="M890 140 H800 V105 H740 V105"/>
+    <path class="flow" d="M890 170 H810 V215 H760 V250 H690"/>
+    <path class="flow2" d="M890 200 H840 V285 H760"/>
+  </g>
+  <g fill="#00e5ff">
+    <circle cx="700" cy="30" r="4"/><circle cx="740" cy="105" r="4"/>
+    <circle cx="690" cy="250" r="4"/><circle cx="760" cy="285" r="4"/>
+  </g>
+
+  <!-- circuit traces (right of chip) -->
+  <g fill="none" stroke="#2dffb3" stroke-width="2" opacity="0.7">
+    <path class="flow2" d="M1070 110 H1120 V60 H1170"/>
+    <path class="flow" d="M1070 140 H1140 V140 H1170"/>
+    <path class="flow2" d="M1070 170 H1110 V230 H1170"/>
+    <path class="flow" d="M1070 200 H1130 V275 H1170"/>
+  </g>
+  <g fill="#2dffb3">
+    <circle cx="1170" cy="60" r="4"/><circle cx="1170" cy="140" r="4"/>
+    <circle cx="1170" cy="230" r="4"/><circle cx="1170" cy="275" r="4"/>
+  </g>
+
+  <!-- chip -->
+  <g filter="url(#glow)">
+    <g stroke="#00e5ff" stroke-width="3">
+      <path d="M890 110H910M890 140H910M890 170H910M890 200H910"/>
+      <path d="M1050 110H1070M1050 140H1070M1050 170H1070M1050 200H1070"/>
+      <path d="M930 70V90M960 70V90M990 70V90M1020 70V90"/>
+      <path d="M930 230V250M960 230V250M990 230V250M1020 230V250"/>
+    </g>
+    <rect x="910" y="90" width="140" height="140" rx="12" fill="url(#chip)" stroke="#00e5ff" stroke-width="2.5"/>
+    <rect x="924" y="104" width="112" height="112" rx="8" fill="none" stroke="#2b5fa8" stroke-width="1.5" stroke-dasharray="4 4"/>
+  </g>
+  <text x="980" y="157" text-anchor="middle" class="mono pulse" font-size="38" font-weight="700" fill="#00e5ff">VLSI</text>
+  <text x="980" y="184" text-anchor="middle" class="mono" font-size="13" fill="#8fb4e8">RTL → VERIFY</text>
+
+  <!-- title block -->
+  <text x="50" y="140" class="mono" font-size="40" font-weight="700" fill="url(#title)">NAGA VENKATA SAI CHEJARLA</text>
+  <text x="50" y="184" class="mono" font-size="24" fill="#00e5ff">VLSI Design &amp; Verification Engineer</text>
+  <text x="50" y="220" class="mono" font-size="17" fill="#a9bddb">RTL Design  |  Verilog  |  SystemVerilog  |  UVM</text>
+
+  <!-- clock + data waveforms -->
+  <g fill="none" stroke-width="2.2" stroke-linejoin="miter">
+    <path class="wave" stroke="#2dffb3" d="M50 272 H80 V248 H110 V272 H140 V248 H170 V272 H200 V248 H230 V272 H260 V248 H290 V272 H320 V248 H350 V272 H380 V248 H410 V272 H440 V248 H470 V272 H500 V248 H530 V272"/>
+    <path class="wave" stroke="#ffb020" d="M50 300 H110 V282 H200 V300 H260 V282 H350 V300 H440 V282 H500 V300 H530"/>
+  </g>
+  <text x="545" y="272" class="mono" font-size="12" fill="#2dffb3">clk</text>
+  <text x="545" y="299" class="mono" font-size="12" fill="#ffb020">data</text>
+</svg>
